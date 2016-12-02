@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>非文</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-12-02T23:42:00+08:00</updated><entry><title>如何编译QCADesigner</title><link href="/ru-he-bian-yi-qcadesigner.html" rel="alternate"></link><published>2016-12-02T23:42:00+08:00</published><updated>2016-12-02T23:42:00+08:00</updated><author><name>彭斐</name></author><id>tag:,2016-12-02:ru-he-bian-yi-qcadesigner.html</id><summary type="html">&lt;p&gt;编译环境为Windows10 64位，msys2&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;设置环境变量GTK_SOURES到/c/msys2/usr&lt;/li&gt;
+&lt;li&gt;运行&lt;code&gt;./autogen.sh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;替换 config.sub 和 config.guess 到最新版本&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;wget -O /tmp/config.sub "git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD"&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wget -O /tmp/config.guess "git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD"&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;运行 &lt;code&gt;./configure&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;修改po目录下的Makefile，将&lt;strong&gt;MSGFMT_OPTS&lt;/strong&gt;设置为空&lt;/li&gt;
+&lt;li&gt;运行&lt;code&gt;make -j4&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;</summary></entry></feed>
