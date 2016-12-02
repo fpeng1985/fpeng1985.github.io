@@ -6,7 +6,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="彭斐" />
-        <title>彭斐的博客</title>
+        <title>非文</title>
         
         <meta name="description" content="" />
         <meta name="keywords" content="Blog "/>
@@ -38,6 +38,7 @@
                             <li><a href="/pages/about-me.html">About Me</a></li>
                         </ul>
                         <ul class="right">
+                            <li><a href="/category/programming.html">Programming</a></li>
                             <li><a href="/category/wen-zhang-lei-bie.html">文章类别</a></li>
                         </ul>
                     </section>
@@ -45,7 +46,7 @@
 
                 <div class="row title-bar">
                     <div class="small-12 columns">
-                        <h1><a href="">彭斐的博客</a></h1><h2> <small></small></h2>
+                        <h1><a href="">非文</a></h1><h2> <small></small></h2>
                         <hr>
                     </div>
                 </div>
@@ -53,6 +54,33 @@
                 <div id="contents">
 <div class="row">
     <div class="small-12 medium-12 columns">
+        <section class="summary">
+    <h3><a href="/ru-he-bian-yi-qcadesigner.html" rel="bookmark" title="Permalink to 如何编译QCADesigner">如何编译QCADesigner</a></h3>
+    <div class="row info-bar" style="margin-left:0rem;margin-bottom:6px;">
+    <div class="small-12 columns">
+        <ul class="inline-list">
+            <li><span><i class="fa fa-calendar"></i>&nbsp; 周五 02 十二月 2016</span></li>
+            <li><span><i class="fa fa-folder-open"></i>&nbsp; <a href="/category/programming.html">Programming</a></span></li>
+        </ul>
+    </div>
+</div>
+    <div class="row summary">
+        <div class="small-12 medium-12 columns">
+            <p>编译环境为Windows10 64位，msys2</p>
+<ol>
+<li>设置环境变量GTK_SOURES到/c/msys2/usr</li>
+<li>运行<code>./autogen.sh</code></li>
+<li>
+<p>替换 config.sub 和 config.guess 到最新版本</p>
+<ul>
+<li><code>wget -O /tmp/config.sub "git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD"</code></li>
+<li><code>wget -O /tmp/config.guess "git.savannah.gnu.org/gitweb/?p=config.git ...</code></li></ul></li></ol>
+            <p class='text-right'><a href="/ru-he-bian-yi-qcadesigner.html">Continue reading&hellip;</a></p>
+        </div>
+    </div>
+</section>
+    </div>
+    <div class="small-12 medium-6 columns small-articles">
         <section class="summary">
     <h3><a href="/wen-zhang-biao-ti.html" rel="bookmark" title="Permalink to 文章标题">文章标题</a></h3>
     <div class="row info-bar" style="margin-left:0rem;margin-bottom:6px;">
@@ -112,12 +140,17 @@
 </div>                </footer>
             </div>
             
-            <div class="image-pane main-content" style="background: url(''); background-size:cover; background-position: right;">
+            <div class="image-pane main-content" style="background: url('images/backdrop.jpg'); background-size:cover; background-position: right;">
                 <div class="row">
                     <div class="small-12 medium-4 large-12 columns">
                         <h5 class='text-center'>About</h5>
                         <div class="about-me">
-                            <div class="small-12 columns text-justify">
+                            <div class="hide-for-medium-only small-3 columns no-buffer">
+                                <a class="th" href="images/profile.jpg">
+                                    <img src="images/profile.jpg">
+                                </a>
+                            </div>
+                            <div class="small-9 medium-12 large-9 columns text-justify">
                                 
                             </div>
                             <div class="small-12 columns">
