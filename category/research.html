@@ -37,7 +37,7 @@
 <meta property="og:url" content=""/>
 <meta property="og:image" content="/images/profile.jpg">
 
-  <title>HFUT QCA &ndash;     Authors
+  <title>HFUT QCA &ndash;     Category Research
 </title>
 
 </head>
@@ -78,17 +78,46 @@
 
     </nav>
 
-<article class="single">
+
+
+<article>
   <header>
-    <h1>    Authors
-</h1>
+    <h2><a href="/designer-modyan-jiu-zhuang-kuang.html#designer-modyan-jiu-zhuang-kuang">designer-mod研究状况</a></h2>
+    <p>
+          Posted on 周四 15 十二月 2016 in <a href="/category/research.html">Research</a>
+
+
+
+    </p>
   </header>
   <div>
-    <ul class="list">
-      <li><a href="/author/peng-fei.html">彭斐</a> (2)</li>
-    </ul>
+      <h2>程序流程</h2>
+<ol>
+<li>读取命令行参数，找到输入的structure文件，并初始化输出目录。</li>
+<li>根据structure中定义的电路结构，生成所有需要仿真的衍生structure。</li>
+<li>
+<p>利用Python库<code>multiprocessing</code>的<code>map</code>机制，并行仿真每一个structure。单个structure的仿真流程如下：</p>
+<ul>
+<li>在C程序中调用QCADesigner的相关API，针对structure定义的QCA电路进行仿真，并将结果输出到.qca和.sim文件中。</li>
+<li>在C++程序中庸 Boost.spirit库解析生成的.sim文件，并将12800个采样点转换为真值表，存储在<code>vector&lt;vector&lt;int&gt;&gt;</code>数据结构中。</li>
+<li>在Python程序中，根据真值表计算逻辑表达式，并保存所有相关结果到<code>dict</code>数据结构中。</li>
+<li>等待所有并行任务处理完后，生成的结构保存在<code>dict</code>组成的列表中。创建sqlite3数据库，并将每一个<code>dict</code>数据结构作为一行插入到<code>SimResult</code>表中。</li>
+<li>在统计函数中访问SimResult表，并将所需的统计信息写入.statistics文件。</li>
+</ul>
+</li>
+<li>
+<p>利用majority_gate_1.txt这个benchmark，在 ...</p></li></ol>
+      <br>
+      <a class="btn" href="/designer-modyan-jiu-zhuang-kuang.html#designer-modyan-jiu-zhuang-kuang">    Continue reading
+</a>
   </div>
 </article>
+
+  <div class="pagination">
+  </div>
+
+
+
 
     <footer>
 <p>&copy; 彭斐 </p>

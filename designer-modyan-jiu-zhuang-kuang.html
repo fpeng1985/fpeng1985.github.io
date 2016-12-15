@@ -27,17 +27,22 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <meta name="author" content="彭斐" />
-    <meta name="description" content="QCA technology research team." />
+<meta name="author" content="彭斐" />
+<meta name="description" content="程序流程 读取命令行参数，找到输入的structure文件，并初始化输出目录。 根据structure中定义的电路结构，生成所有需要仿真的衍生structure。 利用Python库multiprocessing的map机制，并行仿真每一个structure。单个structure的仿真流程如下： 在C程序中调用QCADesigner的相关API，针对structure定义的QCA电路进行仿真，并将结果输出到.qca和.sim文件中。 在C++程序中庸 Boost.spirit库解析生成的.sim文件，并将12800个采样点转换为真值表，存储在vector<vector<int>>数据结构中。 在Python程序中，根据真值表计算逻辑表达式，并保存所有相关结果到dict数据结构中。 等待所有并行任务处理完后，生成的结构保存在dict组成的列表中。创建sqlite3数据库，并将每一个dict数据结构作为一行插入到SimResult表中。 在统计函数中访问SimResult表，并将所需的统计信息写入.statistics文件。 利用majority_gate_1.txt这个benchmark，在 ..." />
+<meta name="keywords" content="">
 <meta property="og:site_name" content="HFUT QCA"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="HFUT QCA"/>
-<meta property="og:description" content="QCA technology research team."/>
+<meta property="og:title" content="designer-mod研究状况"/>
+<meta property="og:description" content="程序流程 读取命令行参数，找到输入的structure文件，并初始化输出目录。 根据structure中定义的电路结构，生成所有需要仿真的衍生structure。 利用Python库multiprocessing的map机制，并行仿真每一个structure。单个structure的仿真流程如下： 在C程序中调用QCADesigner的相关API，针对structure定义的QCA电路进行仿真，并将结果输出到.qca和.sim文件中。 在C++程序中庸 Boost.spirit库解析生成的.sim文件，并将12800个采样点转换为真值表，存储在vector<vector<int>>数据结构中。 在Python程序中，根据真值表计算逻辑表达式，并保存所有相关结果到dict数据结构中。 等待所有并行任务处理完后，生成的结构保存在dict组成的列表中。创建sqlite3数据库，并将每一个dict数据结构作为一行插入到SimResult表中。 在统计函数中访问SimResult表，并将所需的统计信息写入.statistics文件。 利用majority_gate_1.txt这个benchmark，在 ..."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content=""/>
+<meta property="og:url" content="/designer-modyan-jiu-zhuang-kuang.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2016-12-15 12:33:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/peng-fei.html">
+<meta property="article:section" content="Research"/>
 <meta property="og:image" content="/images/profile.jpg">
 
-  <title>HFUT QCA</title>
+  <title>HFUT QCA &ndash; designer-mod研究状况</title>
 
 </head>
 <body>
@@ -77,20 +82,19 @@
 
     </nav>
 
-
-
-<article>
+<article class="single">
   <header>
-    <h2><a href="/designer-modyan-jiu-zhuang-kuang.html#designer-modyan-jiu-zhuang-kuang">designer-mod研究状况</a></h2>
+    <h1 id="designer-modyan-jiu-zhuang-kuang">designer-mod研究状况</h1>
     <p>
           Posted on 周四 15 十二月 2016 in <a href="/category/research.html">Research</a>
 
 
-
     </p>
   </header>
+
+
   <div>
-      <h2>程序流程</h2>
+    <h2>程序流程</h2>
 <ol>
 <li>读取命令行参数，找到输入的structure文件，并初始化输出目录。</li>
 <li>根据structure中定义的电路结构，生成所有需要仿真的衍生structure。</li>
@@ -105,44 +109,40 @@
 </ul>
 </li>
 <li>
-<p>利用majority_gate_1.txt这个benchmark，在 ...</p></li></ol>
-      <br>
-      <a class="btn" href="/designer-modyan-jiu-zhuang-kuang.html#designer-modyan-jiu-zhuang-kuang">    Continue reading
-</a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="/ru-he-bian-yi-qcadesigner.html#ru-he-bian-yi-qcadesigner">如何编译QCADesigner</a></h2>
-    <p>
-          Posted on 周五 02 十二月 2016 in <a href="/category/programming.html">Programming</a>
-
-
-
-    </p>
-  </header>
-  <div>
-      <p>编译环境为Windows10 64位，msys2</p>
+<p>利用majority_gate_1.txt这个benchmark，在<code>PROCESS_NUM</code>设为20的情况下，运行时间大概是10秒钟。</p>
+</li>
+</ol>
+<h2>运行速度过慢的原因</h2>
 <ol>
-<li>设置环境变量GTK_SOURES到/c/msys2/usr</li>
-<li>运行<code>./autogen.sh</code></li>
-<li>
-<p>替换 config.sub 和 config.guess 到最新版本</p>
-<ul>
-<li><code>wget -O /tmp/config.sub "git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD"</code></li>
-<li><code>wget -O /tmp/config.guess "git.savannah.gnu.org/gitweb/?p=config.git ...</code></li></ul></li></ol>
-      <br>
-      <a class="btn" href="/ru-he-bian-yi-qcadesigner.html#ru-he-bian-yi-qcadesigner">    Continue reading
-</a>
+<li>QCADesigner默认采用bistable仿真引擎，每次仿真有12800个采样点，也就是说每次都计算了12800次。但我们在三输入情况下，实际上只需要运算8次即可。</li>
+<li>仿真结果只能输入为文件保存在硬盘上，磁盘读写导致速度低下。</li>
+<li>为了解析Simulation结果，需要编写解析程序，如果采用内存数据结构则无需解析的过程。</li>
+</ol>
+<h2>解决方案</h2>
+<ol>
+<li>将QCADesigner仿真引擎的代码移植过来，使其纳入我们的计算框架。</li>
+<li>利用Bayesian Network模型，重新设计一个QCA仿真器。</li>
+</ol>
+<h2>其他优化</h2>
+<ol>
+<li>编译源代码时采用release模式
+<code>cmake -DCMAKE_BUILD_TYPE=Release ..</code></li>
+<li>程序原型完成后，将代码用C/C++重新实现。需要注意的是：<ul>
+<li>Python的并行只能采用进程，但C++更倾向于使用线程。</li>
+<li>目前没有找到现成的逻辑化简库库。</li>
+</ul>
+</li>
+</ol>
   </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
 </article>
-
-  <div class="pagination">
-  </div>
-
-
-
 
     <footer>
 <p>&copy; 彭斐 </p>
