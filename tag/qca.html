@@ -37,7 +37,7 @@
 <meta property="og:url" content="https://fpeng1985.github.io"/>
 <meta property="og:image" content="https://fpeng1985.github.io/images/profile.jpg">
 
-  <title>彭斐的博客 &ndash;     Category misc
+  <title>彭斐的博客 &ndash;     Tag qca
 </title>
 
 </head>
@@ -85,64 +85,40 @@
 
 <article>
   <header>
-    <h2><a href="https://fpeng1985.github.io/designer-modyan-jiu-zhuang-kuang.html#designer-modyan-jiu-zhuang-kuang">designer-mod研究状况</a></h2>
+    <h2><a href="https://fpeng1985.github.io/qca-research-status.html#qca-research-status">designer-mod研究状况</a></h2>
     <p>
-          Posted on 周四 15 十二月 2016 in <a href="https://fpeng1985.github.io/category/misc.html">misc</a>
+          Posted on 周四 15 十二月 2016 in <a href="https://fpeng1985.github.io/category/research.html">Research</a>
 
 
+          &#8226;     Tagged with
 
+              <a href="https://fpeng1985.github.io/tag/research.html">research</a>,              <a href="https://fpeng1985.github.io/tag/qca.html">qca</a>,              <a href="https://fpeng1985.github.io/tag/python.html">python</a>
     </p>
   </header>
   <div>
-      <p>Modified： 2016-12-16 11:06
-Category: Research
-Tags: research, qca, python
-Slug: qca-research-status
-Authors: 彭斐
-Summary:&nbsp;designer-mod开发现状及改进方案</p>
-<h2>程序流程</h2>
-<ol>
-<li>读取命令行参数，找到输入的structure文件，并初始化输出目录。</li>
-<li>根据structure中定义的电路结构，生成所有需要仿真的衍生structure。</li>
-<li>
-<p>利用Python库<code>multiprocessing</code>的<code>map</code>机制，并行仿真每一个structure。单个structure的仿真流程如下：</p>
-<ul>
-<li>在C程序中调用QCADesigner的相关API，针对structure定义的QCA电路进行仿真，并将结果输出到.qca和.sim文件中。</li>
-<li>在C++程序中用 Boost.spirit库解析生成的.sim文件，并将12800个采样点转换为真值表，存储在<code>vector&lt;vector&lt;int&gt;&gt;</code>数据结构中。</li>
-<li>在Python程序中，根据真值表计算逻辑表达式，并保存所有相关结果到<code>dict</code>数据结构中 …</li></ul></li></ol>
+      <p>designer-mod开发现状及改进方案</p>
       <br>
-      <a class="btn" href="https://fpeng1985.github.io/designer-modyan-jiu-zhuang-kuang.html#designer-modyan-jiu-zhuang-kuang">    Continue reading
+      <a class="btn" href="https://fpeng1985.github.io/qca-research-status.html#qca-research-status">    Continue reading
 </a>
   </div>
   <hr />
 </article>
 <article>
   <header>
-    <h2><a href="https://fpeng1985.github.io/ru-he-bian-yi-qcadesigner.html#ru-he-bian-yi-qcadesigner">如何编译QCADesigner</a></h2>
+    <h2><a href="https://fpeng1985.github.io/how-to-compile-QCADesigner.html#how-to-compile-QCADesigner">如何编译QCADesigner</a></h2>
     <p>
-          Posted on 周五 02 十二月 2016 in <a href="https://fpeng1985.github.io/category/misc.html">misc</a>
+          Posted on 周五 02 十二月 2016 in <a href="https://fpeng1985.github.io/category/programming.html">Programming</a>
 
 
+          &#8226;     Tagged with
 
+              <a href="https://fpeng1985.github.io/tag/c.html">c</a>,              <a href="https://fpeng1985.github.io/tag/qca.html">qca</a>
     </p>
   </header>
   <div>
-      <p>Modified： 2016-12-16 11:12
-Category: Programming
-Tags: C
-Slug: how to compile QCADesigner
-Authors: 彭斐
-Summary: The compilation processing of QCADesigner in Windows&nbsp;enviroment</p>
-<p>编译环境为Windows10&nbsp;64位，msys2</p>
-<ol>
-<li>设置环境变量GTK_SOURES到/c/msys2/usr</li>
-<li>运行<code>./autogen.sh</code></li>
-<li>
-<p>替换 config.sub 和 config.guess&nbsp;到最新版本</p>
-<ul>
-<li><code>wget -O /tmp/config.sub "git.savannah.gnu.org …</code></li></ul></li></ol>
+      <p>The compilation processing of QCADesigner in Windows&nbsp;enviroment</p>
       <br>
-      <a class="btn" href="https://fpeng1985.github.io/ru-he-bian-yi-qcadesigner.html#ru-he-bian-yi-qcadesigner">    Continue reading
+      <a class="btn" href="https://fpeng1985.github.io/how-to-compile-QCADesigner.html#how-to-compile-QCADesigner">    Continue reading
 </a>
   </div>
 </article>
